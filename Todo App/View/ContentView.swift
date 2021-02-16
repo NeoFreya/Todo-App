@@ -9,21 +9,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Environment (\.managedObjectContext) var managedObjectContext
+    
     @State private var showingAddTodoView : Bool = false
+    
     var body: some View {
         NavigationView{
             List(0..<5){item in
                 Text("Hello World")
             }.navigationBarTitle("Todo", displayMode: .inline)
-            .navigationBarItems(trailing:
-                Button(action : {
-                    self.showingAddTodoView.toggle()
-                }){
-                    Image(systemName: "plus.circle.fill")
-                }
-                .sheet(isPresented: $showingAddTodoView){
-                    AddTodoView()
-                }
+                .navigationBarItems(trailing:
+                    Button(action : {
+                        self.showingAddTodoView.toggle()
+                    }){
+                        Image(systemName: "plus.circle.fill")
+                    }
+                    .sheet(isPresented: $showingAddTodoView){
+                        AddTodoView().environment(\.managedObjectContext, self.managedObjectContext )
+                    }
             )
         }
     }

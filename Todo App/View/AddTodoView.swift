@@ -10,11 +10,17 @@ import SwiftUI
 
 struct AddTodoView: View {
     
+    @Environment(\.managedObjectContext) var manageObjectContext
     @Environment(\.presentationMode) var presentaionMode
+    
     @State private var name : String = ""
     @State private var priority : String = ""
     
     let priorities = ["High", "Normal", "Low"]
+    
+    @State private var errorShowing : Bool = false
+    @State private var errorTitle : String = ""
+    @State private var errorMessage : String = ""
     
     var body: some View {
         NavigationView{
@@ -28,8 +34,26 @@ struct AddTodoView: View {
                         }
                     }.pickerStyle(SegmentedPickerStyle())
                     
-                    Button(
-                        action : {print("Save a new todo item")
+                    Button(action :{
+                                if self.name != "" {
+                                let todo = Todo(context: self.manageObjectContext)
+                                todo.name = self.name
+                                todo.priority = self.priority
+                            
+                            do{
+                                try self.manageObjectContext.save()
+                                print("New todo : \(todo.name ?? ""), Priority: \(todo.priority ?? "")"  )
+                            }catch {
+                                print(error)
+                            }
+                            }else{
+                                self.errorShowing = true
+                                self.errorTitle = "Invalid Name"
+                                self.errorMessage = "Make Sure to enter something for\nthe new todo item"
+                                return
+                            }
+                                self.presentaionMode.wrappedValue.dismiss()
+                            
                     }){
                         Text("Save")
                     }
@@ -39,10 +63,13 @@ struct AddTodoView: View {
             .navigationBarTitle("New Todo", displayMode: .inline)
             .navigationBarItems(trailing:
                 Button(action : {
-                    self.presentaionMode.wrappedValue.dismiss()
+                    
                 }){
                     Image(systemName: "xmark")
-                })
+            })
+                .alert(isPresented: $errorShowing){
+                    Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")) )
+            }
         }
     }
 }
