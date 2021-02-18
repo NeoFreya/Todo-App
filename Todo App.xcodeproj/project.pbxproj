@@ -15,6 +15,7 @@
 		E64088C625DA1DF600A4AF6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E64088C525DA1DF600A4AF6D /* Preview Assets.xcassets */; };
 		E64088C925DA1DF600A4AF6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E64088C725DA1DF600A4AF6D /* LaunchScreen.storyboard */; };
 		E64088D225DA1EF100A4AF6D /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64088D125DA1EF100A4AF6D /* AddTodoView.swift */; };
+		E6B6663425DE1A5E00043797 /* EmptyListViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B6663325DE1A5E00043797 /* EmptyListViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E64088C825DA1DF600A4AF6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E64088CA25DA1DF600A4AF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E64088D125DA1EF100A4AF6D /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
+		E6B6663325DE1A5E00043797 /* EmptyListViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,7 @@
 				E64088B925DA1DF400A4AF6D /* AppDelegate.swift */,
 				E64088BB25DA1DF400A4AF6D /* SceneDelegate.swift */,
 				E64088D025DA1E7000A4AF6D /* View */,
-				E64088C225DA1DF600A4AF6D /* Assets.xcassets */,
+				E678978E25DCD7C100102B28 /* Asset */,
 				E64088C725DA1DF600A4AF6D /* LaunchScreen.storyboard */,
 				E64088CA25DA1DF600A4AF6D /* Info.plist */,
 				E64088BD25DA1DF400A4AF6D /* Todo_App.xcdatamodeld */,
@@ -85,8 +87,17 @@
 			children = (
 				E64088C025DA1DF400A4AF6D /* ContentView.swift */,
 				E64088D125DA1EF100A4AF6D /* AddTodoView.swift */,
+				E6B6663325DE1A5E00043797 /* EmptyListViews.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E678978E25DCD7C100102B28 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				E64088C225DA1DF600A4AF6D /* Assets.xcassets */,
+			);
+			path = Asset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 				E64088BC25DA1DF400A4AF6D /* SceneDelegate.swift in Sources */,
 				E64088C125DA1DF400A4AF6D /* ContentView.swift in Sources */,
 				E64088BF25DA1DF400A4AF6D /* Todo_App.xcdatamodeld in Sources */,
+				E6B6663425DE1A5E00043797 /* EmptyListViews.swift in Sources */,
 				E64088D225DA1EF100A4AF6D /* AddTodoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
