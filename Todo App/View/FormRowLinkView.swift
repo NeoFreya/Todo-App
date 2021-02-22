@@ -38,7 +38,7 @@ struct FormRowLinkView: View {
                 UIApplication.shared.open(url as URL)
                 
             }){
-                Image(systemName: "chevron.light")
+                Image(systemName: "chevron.right")
                     .font(.system(size : 14, weight : .semibold, design : .rounded))
             }
             .accentColor(Color(.systemGray2))
