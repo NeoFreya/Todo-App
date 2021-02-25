@@ -29,18 +29,27 @@ struct EmptyListViews: View {
         "Prepare your self for tomorrow"
     ]
     
+// LAST DAY
+    @ObservedObject var theme = ThemeSettings.shared
+    var themes : [Theme] = themeData
+    
     
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing:  20){
                 Image("\(images.randomElement() ?? self.images[0])")
+                    .renderingMode(.template)
                     .resizable()
                     .scaledToFit()
                     .frame(minWidth : 256, idealWidth: 280, maxWidth: 360, minHeight: 256, idealHeight: 280, maxHeight: 360, alignment: .center)
                     .layoutPriority(1)
+                    // Last day
+                    .foregroundColor(themes[self.theme.themeSettings].themeColor)
                 Text("\(tips.randomElement() ?? self.tips[0])")
                     .layoutPriority(0.5)
                     .font(.system(.headline, design : .rounded))
+                    // Last day
+                    .foregroundColor(themes[self.theme.themeSettings].themeColor)
             }
             .padding(.horizontal)
             .opacity(isAnimated ? 1 : 0)
